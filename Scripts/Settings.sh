@@ -24,7 +24,7 @@ else
 	#修改immortalwrt.lan关联IP
 	sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 	#添加编译日期标识
-	sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_CI-$WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
+	sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 fi
 
 #配置文件修改
@@ -32,9 +32,9 @@ echo "CONFIG_PACKAGE_luci-theme-$WRT_THEME=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-$WRT_THEME-config=y" >> ./.config
 
 #手动调整的插件
-if [ -n "$WRT_PACKAGE" ]; then
-	echo "$WRT_PACKAGE" >> ./.config
-fi
+# if [ -n "$WRT_PACKAGE" ]; then
+# 	echo "$WRT_PACKAGE" >> ./.config
+# fi
 
 #高通平台锁定512M内存
 if [[ $WRT_TARGET == *"IPQ"* ]]; then
