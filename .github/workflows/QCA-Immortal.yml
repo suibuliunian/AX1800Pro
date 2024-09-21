@@ -1,5 +1,5 @@
 #CI项目
-name: QCA-ALL
+name: QCA-ImmortalWRT
 
 #CI计划
 on:
@@ -8,16 +8,16 @@ on:
   #  - cron: 0 20 * * *
   #手动编译
   workflow_dispatch:
-    inputs:
-      PACKAGE:
-        description: '手动调整插件包，仅限一个。'
-        required: false
-        type: string
-      TEST:
-        description: '仅输出配置文件，不编译固件。'
-        default: 'false'
-        required: false
-        type: boolean
+    # inputs:
+    #   PACKAGE:
+    #     description: '手动调整插件包，仅限一个。'
+    #     required: false
+    #     type: string
+    # TEST:
+    #   description: '仅输出配置文件，不编译固件。'
+    #   default: 'false'
+    #   required: false
+    #   type: boolean
 
 #CI权限
 permissions: write-all
@@ -42,11 +42,11 @@ jobs:
       #默认主题
       WRT_THEME: argon
       #默认主机名
-      WRT_NAME: OWRT
+      WRT_NAME: ImmortalWRT
       #默认WIFI名
-      WRT_WIFI: OWRT
+      WRT_WIFI: ImWRT
       #默认地址
-      WRT_IP: 192.168.10.1
+      WRT_IP: 192.168.2.1
       #默认密码，仅作提示，修改无用
       WRT_PW: 无
       #源码链接
